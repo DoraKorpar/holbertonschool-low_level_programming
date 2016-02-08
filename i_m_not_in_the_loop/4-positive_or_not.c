@@ -1,5 +1,6 @@
 #include "my_functions.h"
 
+//I think this is possible with just if statements, but this is nicer
 void positive_or_not(int n)
 {
   if (n > 0)
