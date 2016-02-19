@@ -1,0 +1,3 @@
+int print_char(char c);
+int absolute(int);
+char uppercase(char);
