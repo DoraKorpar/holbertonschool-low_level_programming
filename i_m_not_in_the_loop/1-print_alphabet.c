@@ -1,6 +1,6 @@
 #include "my_functions.h"
 
-//for loop prints every value of c from a-z
+/* for loop prints every value of c from a-z */
 void print_alphabet(void)
 {
   char c;

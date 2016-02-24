@@ -1,6 +1,6 @@
 #include "my_functions.h"
 
-//base16 goes from 0-F, so I just broke it up into two for loops
+/* base16 goes from 0-F, so I just broke it up into two for loops */
 void print_base16(void)
 {
   char c;
