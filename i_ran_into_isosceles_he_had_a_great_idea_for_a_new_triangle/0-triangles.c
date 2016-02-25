@@ -9,21 +9,22 @@ void triangles_in_the_term(int h, int n) {
   if (h < 1 || n < 1) {}
   else {
     while (n > 0) {
-      int numStars = 1, numSpace = h - 1, otherStars, otherSpace;
-      while (h > 0) {
-	  otherSpace = numSpace;
-	  while (otherSpace > 0) {
+      int numStars = 1, numSpace = h - 1, stars2, space2, height;
+      height = h;
+      while (height > 0) {
+	  space2 = numSpace;
+	  while (space2 > 0) {
 	      print_char(' ');
-	      otherSpace--;
+	      space2--;
 	    }
-	  otherStars = numStars;
-	  while (otherStars > 0) {
+	  stars2 = numStars;
+	  while (stars2 > 0) {
 	      print_char('*');
-	      otherStars--;
+	      stars2--;
 	    }
 	  numSpace--;
 	  numStars += 2;
-	  h--;
+	  height--;
 	  print_char('\n');
       }
       n--;
