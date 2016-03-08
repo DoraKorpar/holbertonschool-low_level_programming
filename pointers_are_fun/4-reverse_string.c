@@ -1,3 +1,4 @@
+/* reorders array to be backwards */
 void reverse_string(char *s)
 {
   char temp;
