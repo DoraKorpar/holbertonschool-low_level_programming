@@ -9,9 +9,6 @@ int main(void) {
   p = &n;
   *(p + 5) = 98;
 
-  printf("&(*(p + 5)) = %p\n", &(*(p + 5)));
-  printf("&p = %p\n", &p);
-  printf("&a[2] = %p\n", &a[2]);
   printf("a[2] = %d\n", a[2]);
   return (0);
 }
