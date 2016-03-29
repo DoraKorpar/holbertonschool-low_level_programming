@@ -1,10 +1,18 @@
+int divider(int n, int i);
+
 int square_root(int n) {
-  int i = 1;
   if (n < 0) {
     return(-1);
   }
-  if ((n / i) == i) {
+  return(divider(n, 1));
+}
+
+int divider(int n, int i) {
+  if ((n / i) == i && (n % i) == 0) {
     return(i);
+  } 
+  if ((n / i) < i) {
+    return(-1);
   }
-  return(square_root(i+1));
+  return(divider(n, ++i));
 }
