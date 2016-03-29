@@ -3,9 +3,6 @@ int compare_strings(char *s, int i, int j);
 
 int is_palindrome(char *s) {
   int i = string_length(s, 0);
-  if (*s == 0) {
-    return(0);
-  }
   return(compare_strings(s, --i, 0));
 }
 
