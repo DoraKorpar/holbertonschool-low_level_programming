@@ -1,3 +1,5 @@
+/* multiplies x recursively y number of times */
+
 int power(int x, int y){
   if (x < 0) {
     return(-1);

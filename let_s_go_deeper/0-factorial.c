@@ -1,3 +1,4 @@
+/* multiplies n recursively to get factorial */
 int factorial(int n) {
   if (n < 0) {
     return(-1);
