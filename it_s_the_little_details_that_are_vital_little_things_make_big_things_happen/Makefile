@@ -6,4 +6,5 @@ all:
 clean:
 	rm libholbertonschool.a
 
-re: all
+re: 
+	all clean
