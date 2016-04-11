@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int **alloc_grid(int, int);
-void print_grid(int **, int, int) {}
+void print_grid(int **, int, int);
 
 int main() {
   int **grid;
