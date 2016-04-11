@@ -5,6 +5,10 @@ int **alloc_grid(int width, int height) {
   int i = 0, j = 0;
   outer_grid = malloc(sizeof(int *) * width);
 
+  if (outer_grid == NULL) {
+    return (0);
+  }
+
   while (i < width) {
     outer_grid[i] = malloc(sizeof(int) * height);
 
