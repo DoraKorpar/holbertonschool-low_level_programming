@@ -1,5 +1,6 @@
 #include <stdlib.h>
 
+/* function counts length of array, then returns a new array of that length containing the previous one */
 char *string_dup(char *str) {
   char *str_copy = str;
   int i = 0;
