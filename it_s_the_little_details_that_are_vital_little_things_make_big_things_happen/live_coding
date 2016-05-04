@@ -1,0 +1,16 @@
+CFLAGS = -Wall -Wextra -Werror -pedantic 
+SRC = files
+VPATH = src
+OBJECTS = $(SRC:.c = .o)
+
+all: libholberton.a
+
+libholbertonschool.a:  $(OBJECTS)
+	ar -rc libholberton. $(OBJECTS)
+
+$(OBJECTS) : $(SRC) <-------------- IMPLICIT RULE FOR MAKEFILE -------------------------->
+
+clean: 
+       rm -f $(OBJECTS)
+
+RE: $(OBJECTS)

@@ -13,7 +13,7 @@ int prime_loop(int n, int i) {
   if (n % i == 0) {
     return(0);
   }
-  if (i > 7) {
+  if (i >= n/2) {
     return(1);
   }
   return(prime_loop(n, ++i));
