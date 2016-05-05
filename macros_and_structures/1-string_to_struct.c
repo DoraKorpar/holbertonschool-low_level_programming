@@ -20,7 +20,7 @@ struct String *string_to_struct(char *str) {
   }
 
   /* allocates memory to string within struct */
-  string->str = malloc(sizeof(char) * i);
+  string->str = malloc(sizeof(char) * (i + 1));
   if (string->str == NULL) {
     return (NULL);
   }
