@@ -9,9 +9,6 @@ int main(void)
   struct String *str;
 
   str = string_to_struct("Holberton");
-  if (str == NULL) {
-    return (1);
-  }
   print_string_struct(str);
   return (0);
 }
