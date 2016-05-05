@@ -2,21 +2,32 @@
 #include "str_struct.h"
 
 struct String *string_to_struct(char *str) {
-  struct String *sts;
+  struct String *string;
   int i;
+  int j;
   i = 0;
+  j = 0;
 
-  sts = malloc(sizeof(struct String));
-  if (sts == NULL) {
-    return (NULL);
-  }
-  
   while (str[i] != '\0') {
     i++;
   }
 
-  sts->str = str;
-  sts->length = i;
+  string = malloc(sizeof(struct String));
+  if (string == NULL) {
+    return (NULL);
+  }
 
-  return (sts);
+  string->str = malloc(sizeof(char) * i);
+  if (string->str == NULL) {
+    return (NULL);
+  }
+  
+  while (j < i) {
+    string->str[j] = str[j];
+    j++;
+  }
+
+  string->length = i;
+
+  return (string);
 }
