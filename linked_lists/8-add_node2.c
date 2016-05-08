@@ -3,7 +3,29 @@
 char *string_dup(char *str);
 
 int add_node(List **list, char *content) {
-  
+  List *newNode;
+  List *temp;
+  /* allocate mem to node */
+  newNode = malloc(sizeof(List));
+  if (newNode == NULL) {
+    return (1);
+  }
+  /* populate node with copy of param string */
+  newNode->str = string_dup(content);
+  /* next points to NULL because the new node will be last in the list */
+  newNode->next = NULL;
+  /* if statement assigns newNode location to *list if it is the first node added to the list */
+  if (*list == NULL) {
+    *list = newNode;
+  }
+  else {
+    temp = *list;
+    while (temp->next != NULL) {
+      temp = temp->next;
+    }
+    temp->next = newNode;
+  }
+  return (0);  
 }
 
 char *string_dup(char *str) {
