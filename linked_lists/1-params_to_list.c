@@ -22,7 +22,7 @@ char *string_dup(char *str) {
   while (str[i] != '\0') {
     i++;
   }
-  str = malloc(sizeof(char) * i);
+  str = malloc(sizeof(char) * (i + 1));
   if (str == NULL) {
     return (0);
   }
