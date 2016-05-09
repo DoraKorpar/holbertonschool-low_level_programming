@@ -7,9 +7,9 @@ void print_list(List *list) {
   List *temp;
   int i;
   temp = list;
-  i = 0;
   /* for every node but the last one, print the contents of str, followed by a comma and space */
   while (temp->next != NULL) {
+    i = 0;
     while (temp->str[i] != '\0') {
       print_char(temp->str[i]);
       i++;
