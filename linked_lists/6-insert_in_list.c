@@ -6,9 +6,11 @@ char *string_dup(char *str);
 
 int insert_in_list(List **list, char *content, int index) {
   List *newNode;
+  List *prevNode;
 
   newNode = malloc(sizeof(newNode));
-  newNode = *list;
+  newNode->str = string_dup(content);
+  prevNode = *list;
 
   if (index < 0) {
     return (0);
@@ -17,10 +19,11 @@ int insert_in_list(List **list, char *content, int index) {
     add_node_2(list, content);
   }
   while (index > 1) {
-    newNode = newNode->next;
+    prevNode = prevNode->next;
     index--;
   }
-  newNode->str = string_dup(content);
+  newNode->next = prevNode->next;
+  prevNode->next = newNode;
   return (0);
 }
 
