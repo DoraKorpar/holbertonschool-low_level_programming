@@ -29,10 +29,14 @@ void crazy_reverse_string(char *s)
     {
       /* your code goes here only */
       /* you can only use s, l and i to complete the task */
-      s[l+i] = s[i];
+      /*      s[l+i] = s[i];
       s[i] = s[l-(i+1)];
       s[l-(i+1)] = s[l+i];
-      s[l+i] = 0;
+      s[l+i] = 0; */
+
+      s[i] = s[i] + s[(l-1) - i];
+      s[(l-1) - i] = s[i] - s[(l-1) - i];
+      s[i] = s[i] - s[(l-1) - i];
       i++;
     }
 }
