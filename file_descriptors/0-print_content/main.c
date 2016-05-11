@@ -11,7 +11,7 @@ int main(int ac, char **av) {
   int fd, len, i;
   char buffer[BUFF_SIZE + 1];
   /* handles error if there aren't enough arguments */
-  if (ac < 2) {
+  if (ac != 2) {
     return (1);
   }
   fd = open(av[1], O_RDONLY);
