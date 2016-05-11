@@ -19,70 +19,20 @@ int main(int ac, char **av) {
   }
   else {
     /* checks if argument is a directory */
-    if (S_ISDIR(buffer.st_mode)) {
-      print_char('d');
-    }
-    else {
-      print_char('-');
-    }
+    write(1, (S_ISDIR(fileStat.st_mode)) ? "d" : "-", 1);
     /* checks user permissions */
-    if (buffer.st_mode & S_IRUSR) {
-      print_char('r');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IWUSR) {
-      print_char('w');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IXUSR) {
-      print_char('x');
-    }
-    else {
-      print_char('-');
-    }
+    write(1, (fileStat.st_mode & S_IRUSR) ? "r" : "-", 1);
+    write(1, (fileStat.st_mode & S_IWUSR) ? "w" : "-", 1);
+    write(1, (fileStat.st_mode & S_IXUSR) ? "x" : "-", 1);
     /* checks group permissions */
-    if (buffer.st_mode & S_IRGRP) {
-      print_char('r');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IWGRP) {
-      print_char('w');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IXGRP) {
-      print_char('x');
-    }
-    else {
-      print_char('-');
-    }
+    write(1, (fileStat.st_mode & S_IRGRP) ? "r" : "-", 1);
+    write(1, (fileStat.st_mode & S_IWGRP) ? "w" : "-", 1);
+    write(1, (fileStat.st_mode & S_IXGRP) ? "x" : "-", 1);
     /* checks other user permissions */
-    if (buffer.st_mode & S_IROTH) {
-      print_char('r');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IWOTH) {
-      print_char('w');
-    }
-    else {
-      print_char('-');
-    }
-    if (buffer.st_mode & S_IXOTH) {
-      print_char('x');
-    }
-    else {
-      print_char('-');
-    }  
-    print_char('\n');
+    write(1, (fileStat.st_mode & S_IROTH) ? "r" : "-", 1);
+    write(1, (fileStat.st_mode & S_IWOTH) ? "w" : "-", 1);
+    write(1, (fileStat.st_mode & S_IXOTH) ? "x" : "-", 1);
+    write(1, "\n", 1);    
   }
   return (0);
 }
