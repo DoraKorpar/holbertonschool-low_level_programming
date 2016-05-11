@@ -10,7 +10,7 @@ int main(int ac, char **av) {
   int fd, fd2, len;
   char buffer[BUFF_SIZE + 1];
   /* handles error of too few arguments */
-  if (ac < 2) {
+  if (ac != 3) {
     return (1);
   }
   /* opens file to copy then opens destination file, truncates it if it exists or creates it if it doesn't exist */
