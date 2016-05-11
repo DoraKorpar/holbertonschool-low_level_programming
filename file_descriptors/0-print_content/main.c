@@ -8,11 +8,9 @@
 int print_char(char c);
 
 int main(int ac, char **av) {
-  int fd;
-  int len;
-  int i;
+  int fd, len, i;
   char buffer[BUFF_SIZE + 1];
-
+  /* handles error if there aren't enough arguments */
   if (ac < 2) {
     return (1);
   }
@@ -20,7 +18,6 @@ int main(int ac, char **av) {
   if (fd == -1) {
     return (1);
   }
-
   len = read(fd, buffer, BUFF_SIZE);
   if (len == -1) {
     close(fd);
