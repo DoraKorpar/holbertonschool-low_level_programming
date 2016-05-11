@@ -11,6 +11,7 @@ int main(int ac, char **av) {
   char input;
   int i;
 
+  /* allows writing to stdin and prints it back out */
   if (ac < 2) {
     while ((read(0, &input, 1)) > 0) {
       write(1, &input, 1);
@@ -19,6 +20,7 @@ int main(int ac, char **av) {
 
   i = 1;
   while (i < ac) {
+    /* reused function from first task */
     print_content(av[i]);
     i++;
   }
