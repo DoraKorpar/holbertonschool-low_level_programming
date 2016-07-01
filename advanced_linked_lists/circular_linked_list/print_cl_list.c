@@ -9,6 +9,7 @@ void print_cl_list(List *list)
   List *node;
 
   node = list;
+  /* prints all but last node */
   while (node->next != list) {
     print_string(node->str);
     print_char('\n');
@@ -17,6 +18,7 @@ void print_cl_list(List *list)
     print_char('\n');
     node = node->next;
   }
+  /* prints last node */
   print_last_node(node);
 }
 

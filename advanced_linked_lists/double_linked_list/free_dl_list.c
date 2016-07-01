@@ -4,7 +4,7 @@
 void free_dl_list(List *list)
 {
   List *temp;
-
+  /* for each node, frees str and then node */
   while (list != NULL) {
     temp = list;
     list = list->next;
