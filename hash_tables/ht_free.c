@@ -9,42 +9,29 @@ void ht_free(HashTable *hashtable)
   List *tmp2;
 
   i = 0;
-  
-  printf("entering first loop\n");
-
   while (i < hashtable->size) {
-    printf("assigning tmp\n");
     tmp = hashtable->array[i];
-
+    /* if element of array is empty, do nothing */
     if (tmp == NULL) {
-      printf("this node is empty\n");
     }
     else {
-      printf("entering second loop\n");
       while (tmp->next != NULL) {
-	printf("assigning tmp2\n");
+	/* goes through linked list and frees all parts */
 	tmp2 = tmp->next;
-	printf("free key and value\n");
 	free(tmp->key);
 	free(tmp->value);
-	printf("free tmp\n");
 	free(tmp);
-	printf("reassign tmp\n");
 	tmp = tmp2;
-	}
-      printf("if only one node\n");
+      }
       if (tmp->next == NULL) {
-	printf("freeing key and value\n");
+	/* frees last node in linked list or if there's only single node */
 	free(tmp->key);
 	free(tmp->value);
-	printf("free tmp\n");
 	free(tmp);
       }
     }
     i++;
   }
-  printf("free array\n");
   free(hashtable->array);
-  printf("free hashtable\n");
   free(hashtable);
 }
