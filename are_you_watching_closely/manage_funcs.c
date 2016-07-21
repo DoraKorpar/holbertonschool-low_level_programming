@@ -7,7 +7,20 @@ typedef struct speficier_funcs {
 
 int manage_funcs(char c, va_list ap)
 {
-  spec_func f[] = { {'d', &di_func}, {'i', &di_func}, {'o', &o_func}, {'u', &u_func}, {'x', &x_func}, {'X', &X_func}, {'c', &c_func}, {'s', &s_func}, {'p', &p_func}, {'%', &perc_func}, {'\0', '\0'} };
+  spec_func f[] =
+    {
+      {'d', &di_func},
+      {'i', &di_func},
+      {'o', &o_func},
+      {'u', &u_func},
+      {'x', &x_func},
+      {'X', &X_func},
+      {'c', &c_func},
+      {'s', &s_func},
+      {'p', &p_func},
+      {'%', &perc_func},
+      {'\0', '\0'} };
+  
   int i, ret;
 
   i = 0;
