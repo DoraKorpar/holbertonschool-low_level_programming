@@ -31,9 +31,7 @@ int btree_insert(BTree **tree, char *data)
 	node->left = NULL; /* the new node always inserted at end of tree, so points to NULL */
 	node->right = NULL;
 	if (*tree == NULL) /* means there are no previous nodes */
-		{
-			*tree = node;
-		}
+	  *tree = node;
 	else
 		{
 			temp = *tree;
@@ -68,6 +66,8 @@ int traverse_tree(BTree *temp, BTree *node)
 			else /* if next pointer is NULL, that means end of branch, and new node is inserted */
 				{
 					temp->right = node;
+					node->right = NULL;
+					node->left = NULL;
 				}
 		}
 	else /* same as previous comments, just on left of tree */
@@ -80,6 +80,8 @@ int traverse_tree(BTree *temp, BTree *node)
 			else
 				{
 					temp->left = node;
+					node->right = NULL;
+					node->left = NULL;
 				}
 		}
 	return (0);
