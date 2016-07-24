@@ -14,12 +14,12 @@
  * matches the string passed as parameter
  */
 
-BTree *btree_find(BTree *tree, char *str)
+BTree *btree_find(BTree *tree, __attribute__((unused))char *str)
 {
 	BTree *found;
 	BTree *temp;
 
-	temp = tree;
+ 	temp = tree;
 	printf("Before null check\n");
 	if (tree == NULL || str[0] == '\0') /* ensures both params are not NULL */
 		{
