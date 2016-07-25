@@ -21,11 +21,11 @@ BTree *array_to_btree(char **array)
 	tree = NULL; /* initializing pointer to tree */
 	i = 0;
 	while (array[i]) /* only works if final element of array is NULL */
-		{
-			ret = btree_insert(&tree, array[i]);
-			if (ret == 1)
-				return NULL;
-			i++;
-		}
-	return tree;
+	{
+		ret = btree_insert(&tree, array[i]);
+		if (ret == 1)
+			return (NULL);
+		i++;
+	}
+	return (tree);
 }
