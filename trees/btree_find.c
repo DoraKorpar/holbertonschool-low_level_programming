@@ -20,18 +20,10 @@ BTree *btree_find(BTree *tree, __attribute__((unused))char *str)
 	BTree *temp;
 
  	temp = tree;
-	printf("Before null check\n");
 	if (tree == NULL || str[0] == '\0') /* ensures both params are not NULL */
-		{
-			printf("After null check\n");
-			return (NULL);
-		}
+		return (NULL);
 	else
-		{
-			printf("Before find_node called\n");
-			found = find_node(temp, str); /* calls recursive function */
-		}
-	printf("Before btree_find return\n");
+		found = find_node(temp, str); /* calls recursive function */
 	return (found);
 }
 
@@ -65,10 +57,7 @@ BTree *find_node(BTree *temp, char *str)
 					found = find_node(temp, str); /* assigns return of find_node to found */
 				}
 			else /* if next node is NULL, then there is no match */
-				{
-					printf("No match lalala segfault\n");
-					return NULL;
-				}
+				return NULL;		
 		}
 	else if (comp > 0) /* string2 is less than string1, so to left of tree */
 		{
@@ -78,10 +67,7 @@ BTree *find_node(BTree *temp, char *str)
 					found = find_node(temp, str);
 				}
 			else /* again, if next node is NULL, then there is no match */
-				{
-					printf("No match so you get a segfault\n");
-					return NULL;
-				}
+				return NULL;  
 		}
  	return (found);
 }
