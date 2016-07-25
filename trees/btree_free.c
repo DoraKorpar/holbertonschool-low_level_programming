@@ -24,8 +24,8 @@ void btree_free(BTree *tree)
  * free_node - uses recursion to free all allocated memory in tree
  * @node: pointer to first node of tree passed from btree_free
  *
- * Function frees the str element of each node because that was 
- * malloc'd through the strdup func used in btree_insert. Then it 
+ * Function frees the str element of each node because that was
+ * malloc'd through the strdup func used in btree_insert. Then it
  * recursively frees each element to the left and right. If the node
  * is NULL, meaning the end of a branch, the function returns.
  */
