@@ -21,24 +21,24 @@ int btree_insert(BTree **tree, char *data)
 	BTree *temp;
 	int ret;
 
-	node = malloc(sizeof(BTree)); /* allocate space in memory for new node */
+	node = malloc(sizeof(BTree)); /* allocate space in mem for new node */
 	if (node == NULL)
-		return (1);
+		return 1;
 	node->str = strdup(data); /* puts copy of data string into the str */
 	if (node->str == NULL)
-		return (1);
-	node->left = NULL; /* new node inserted at end of tree, so points to NULL */
+		return 1;
+	node->left = NULL; /* node inserted at end of tree, points to NULL */
 	node->right = NULL;
 	if (*tree == NULL) /* means there are no previous nodes */
-	  *tree = node;
+		*tree = node;
 	else
 		{
 			temp = *tree;
-			ret = traverse_tree(temp, node); /* insert node at proper place */
+			ret = traverse_tree(temp, node); /* insert node */
 			if (ret == 1)
-				return (1);
+				return 1;
 		}
-	return (0);
+	return 0;
 }
 
 /**
@@ -56,15 +56,15 @@ int traverse_tree(BTree *temp, BTree *node)
 {
 	int comp;
 
-	comp = strcmp(temp->str, node->str); /* determine where to put new node */
+	comp = strcmp(temp->str, node->str); /* determine where to put node */
 	if (comp < 0 || comp == 0)
 		{
-			if (temp->right != NULL) /* loop thru tree til nxt ptr isn't NULL */
+			if (temp->right != NULL)
 				{
 					temp = temp->right;
 					traverse_tree(temp, node);
 				}
-			else /* if nxt ptr NULL, means end of branch, & new node inserted */
+			else /* if nxt ptr NULL means end of branch */
 				{
 					temp->right = node;
 					node->right = NULL;
@@ -85,5 +85,5 @@ int traverse_tree(BTree *temp, BTree *node)
 					node->left = NULL;
 				}
 		}
-	return (0);
+	return 0;
 }
