@@ -7,3 +7,5 @@ BTree *find_node(BTree *, char *);
 BTree *array_to_btree(char **);
 void btree_free(BTree *);
 void free_node(BTree *);
+int btree_depth(BTree *);
+int max_depth(BTree *);
