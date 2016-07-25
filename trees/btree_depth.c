@@ -14,9 +14,9 @@ int btree_depth(BTree *tree)
 	int depth;
 
 	if (tree == NULL)
-		return -1;
+		return (-1);
 	depth = max_depth(tree);
-	return depth;
+	return (depth);
 }
 
 /**
@@ -34,7 +34,7 @@ int max_depth(BTree *tree)
 	int max_right;
 
 	if (tree == NULL) /* endpoint for recursion */
-		return 0;
+		return (0);
 	max_left = max_depth(tree->left);
 	max_right = max_depth(tree->right);
 	if (max_left > max_right) /* find which branch is longest */
