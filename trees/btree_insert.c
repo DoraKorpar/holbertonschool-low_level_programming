@@ -1,4 +1,5 @@
 #include "tree.h"
+#include "btree_funcs.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -13,8 +14,6 @@
  * data elements of nodes. Lower elements are to the left.
  * Greater or equal elements are to the right.
  */
-
-int traverse_tree(BTree *, BTree *);
 
 int btree_insert(BTree **tree, char *data)
 {
