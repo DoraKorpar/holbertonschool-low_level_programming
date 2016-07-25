@@ -23,10 +23,10 @@ int btree_insert(BTree **tree, char *data)
 
 	node = malloc(sizeof(BTree)); /* allocate space in mem for new node */
 	if (node == NULL)
-		return 1;
+		return (1);
 	node->str = strdup(data); /* puts copy of data string into the str */
 	if (node->str == NULL)
-		return 1;
+		return (1);
 	node->left = NULL; /* node inserted at end of tree, points to NULL */
 	node->right = NULL;
 	if (*tree == NULL) /* means there are no previous nodes */
@@ -36,9 +36,9 @@ int btree_insert(BTree **tree, char *data)
 			temp = *tree;
 			ret = traverse_tree(temp, node); /* insert node */
 			if (ret == 1)
-				return 1;
+				return (1);
 		}
-	return 0;
+	return (0);
 }
 
 /**
@@ -58,32 +58,32 @@ int traverse_tree(BTree *temp, BTree *node)
 
 	comp = strcmp(temp->str, node->str); /* determine where to put node */
 	if (comp < 0 || comp == 0)
+	{
+		if (temp->right != NULL)
 		{
-			if (temp->right != NULL)
-				{
-					temp = temp->right;
-					traverse_tree(temp, node);
-				}
-			else /* if nxt ptr NULL means end of branch */
-				{
-					temp->right = node;
-					node->right = NULL;
-					node->left = NULL;
-				}
+			temp = temp->right;
+			traverse_tree(temp, node);
 		}
+		else /* if nxt ptr NULL means end of branch */
+		{
+			temp->right = node;
+			node->right = NULL;
+			node->left = NULL;
+		}
+	}
 	else /* same as previous comments, just on left of tree */
+	{
+		if (temp->left != NULL)
 		{
-			if (temp->left != NULL)
-				{
-					temp = temp->left;
-					traverse_tree(temp, node);
-				}
-			else
-				{
-					temp->left = node;
-					node->right = NULL;
-					node->left = NULL;
-				}
+			temp = temp->left;
+			traverse_tree(temp, node);
 		}
-	return 0;
+		else
+		{
+			temp->left = node;
+			node->right = NULL;
+			node->left = NULL;
+		}
+	}
+	return (0);
 }
