@@ -15,9 +15,9 @@ void btree_free(BTree *tree)
 	BTree *node;
 
 	node = tree;
-	if (tree == NULL)
+	if (tree == NULL) /* checks if there is anything to free */
 		return;
-	free_node(node);
+	free_node(node); /* calls recursive function */
 }
 
 /**
@@ -29,9 +29,10 @@ void btree_free(BTree *tree)
  * recursively frees each element to the left and right. If the node
  * is NULL, meaning the end of a branch, the function returns.
  */
+
 void free_node(BTree *node)
 {
-	if (node == NULL)
+	if (node == NULL) /* stop once end of branch is reached */
 		return;
 	free(node->str);
 	free_node(node->right);
