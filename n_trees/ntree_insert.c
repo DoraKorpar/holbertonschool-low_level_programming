@@ -4,6 +4,17 @@
 #include "tree.h"
 #include "ntree_funcs.h"
 
+/**
+ * ntree_insert - creates and inserts new node of ntree
+ * @tree : pointer to first node of tree
+ * @parents : array of strings of parent nodes
+ * @data : string to be stored in new node
+ *
+ * Function allocates memory to create new node. If
+ * tree is empty, inserts new node as first node.
+ * Otherwise, calls traverse_tree to find correct
+ * location for new node based on parents array.
+ */
 int ntree_insert(NTree **tree, char **parents, char *data)
 {
 	NTree *node;
@@ -14,7 +25,7 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 	node->str = strdup(data);
 	node->children = NULL;
 	if (*tree == NULL)
-		*tree = node;
+		*tree = node; /* if new node is first node */
 	else
 	{
 		if ((traverse_tree(tree, node, parents)) == 1)
@@ -23,6 +34,18 @@ int ntree_insert(NTree **tree, char **parents, char *data)
 	return (0);
 }
 
+/**
+ * traverse_tree - finds correct location for new node
+ * @tree : pointer to first node of tree
+ * @node : pointer to new node
+ * @parents : array of strings of parent nodes
+ *
+ * Parents array contains strings held in each parent
+ * node of new node to be inserted. Function compares
+ * node->str with elements of parent to determine
+ * where new node belongs, then calls add_node to
+ * insert node.
+ */
 int traverse_tree(NTree **tree, NTree *node, char **parents)
 {
 	NTree *current;
@@ -52,21 +75,33 @@ int traverse_tree(NTree **tree, NTree *node, char **parents)
 	return (0);
 }
 
+/**
+ * add_node - inserts new node into ntree
+ * @current : pointer to last parent node
+ * @node : pointer to new node
+ *
+ * Function creates struct List node to
+ * populate current's children element.
+ * New node is then added to List's node
+ * element. If children element is not
+ * empty, new linked list node is added
+ * to beginnig of list.
+ */
 int add_node(NTree *current, NTree *node)
 {
-	List *list2;
+	List *list;
 
-	list2 = malloc(sizeof(List));
-	if (list2 == NULL)
+	list = malloc(sizeof(List));
+	if (list == NULL)
 		return (1);
-	list2->node = node;
-	list2->next = NULL;
+	list->node = node;
+	list->next = NULL;
 	if (current->children == NULL)
-		current->children = list2;
+		current->children = list;
 	else
 	{
-		list2->next = current->children;
-		current->children = list2;
+		list->next = current->children;
+		current->children = list;
 	}
 	return (0);
 }
