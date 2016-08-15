@@ -22,13 +22,13 @@ int path_exists(NTree *tree, char **path)
 		node = node_exists(children, path[i]);
 		if (node == NULL)
 			return (0);
-		i++;		
+		i++;
 	}
 	return (1);
 }
 
 NTree *node_exists(List *children, char *path_str)
-{		
+{
 	int comp;
 
 	while (children != NULL)

@@ -36,17 +36,17 @@ int traverse_tree(NTree **tree, NTree *node, char **parents)
 	if (comp != 0)
 		return (1);
 	while (parents[i] != NULL)
+	{
+		comp2 = strcmp(parents[i], list->node->str);
+		if (comp2 != 0)
+			list = list->next;
+		else
 		{
-			comp2 = strcmp(parents[i], list->node->str);
-			if (comp2 != 0)
-				list = list->next;
-			else
-			{
-				current = list->node;
-				list = current->children;
-				i++;
-			}
+			current = list->node;
+			list = current->children;
+			i++;
 		}
+	}
 	if ((add_node(current, node)) == 1)
 		return (1);
 	return (0);
@@ -55,7 +55,7 @@ int traverse_tree(NTree **tree, NTree *node, char **parents)
 int add_node(NTree *current, NTree *node)
 {
 	List *list2;
-	
+
 	list2 = malloc(sizeof(List));
 	if (list2 == NULL)
 		return (1);
@@ -63,7 +63,8 @@ int add_node(NTree *current, NTree *node)
 	list2->next = NULL;
 	if (current->children == NULL)
 		current->children = list2;
-	else {
+	else
+	{
 		list2->next = current->children;
 		current->children = list2;
 	}

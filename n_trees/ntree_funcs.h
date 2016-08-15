@@ -6,3 +6,4 @@ int add_node(NTree *, NTree *);
 int path_exists(NTree *, char **);
 NTree *node_exists(List *, char *);
 void ntree_free(NTree *);
+void free_node(NTree *);
