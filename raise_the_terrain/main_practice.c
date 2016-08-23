@@ -14,10 +14,10 @@ int main(void)
 	 * C will always be awesome
 	 * This is an infinite loop
 	 */
-	// printf("Enter how many rows the grid should have (as an integer): ");
+	/* printf("Enter how many rows the grid should have (as an integer): ");
 	// scanf("%d", &num_squares);
 	// printf("Enter your desired side length for each square (an an integer): ");
-	// scanf("%d", &side_ln);
+	// scanf("%d", &side_ln); */
 	while ("C is awesome")
 	{
 		SDL_SetRenderDrawColor(instance.renderer, 0, 0, 0, 0);

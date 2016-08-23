@@ -20,9 +20,7 @@ int init_instance (SDL_Instance *);
 
 #endif
 
-void draw_grid(SDL_Instance, int, int);
 void draw_grid_alt(SDL_Instance/*, int, int*/);
-void draw_lines1(SDL_Instance, int, int);
 void draw_lines2(SDL_Instance, int, int);
 void add_alt(SDL_Instance, int, int, int altitudes[][8]);
 int poll_events(void);

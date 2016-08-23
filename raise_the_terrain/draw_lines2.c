@@ -1,6 +1,26 @@
 #include <SDL2/SDL.h>
 #include "header.h"
 
+/**
+* draw_lines2 - Generates lines going from 3rd to 1st quadrant
+* @instance : SDL_Instance
+* @num_squares : number of squares grid should have in 1 direction
+* @iso_constant : number to multiply iso triangle values by
+*
+* altitudes 2D array from draw_grid_alt is rotated.
+* Function first establishes starting x,y coordinates.
+* First loop determines how many lines needed for grid based on num_squares.
+* Starting value of x stored in xcopy.
+* yalt adds first element of altitudes element to y for each loop.
+* Second loop determines how long each grid line needs to be.
+* x2 and y2 are end points for each line.
+* x2 incremented by same amount every time (see header.h)
+* y2 incremented from original y value, changed by iso values and num of loops,
+* and then altitude is factored in.
+* Line is drawn.
+* First points for line (x & yalt) updated until 2nd loop complete.
+* x,y of outer loop updated.
+*/
 void draw_lines2(SDL_Instance instance, int num_squares, int iso_constant)
 {
   int i, j;

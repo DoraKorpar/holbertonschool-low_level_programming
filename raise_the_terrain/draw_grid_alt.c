@@ -1,6 +1,15 @@
 #include <SDL2/SDL.h>
 #include "header.h"
 
+/**
+* draw_grid_alt - helper function for drawing iso grid with altitudes
+* @instance : SDL_Instance
+*
+* Function declares 2D array altitudes, number of squares to be in grid
+* row, length long side of each sqaure should be, and iso_constant, which
+* is based on iso triangle ratios.
+* Then calls to functions to draw each direction of lines.
+*/
 void draw_grid_alt(SDL_Instance instance/*, int num_squares, int side_ln*/)
 {
   int iso_constant, num_squares, side_ln;
