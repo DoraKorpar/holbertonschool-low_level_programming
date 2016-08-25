@@ -9,6 +9,7 @@ all : $(EXEC)
 
 $(EXEC) : $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(EXEC) $(SDL)
+	
 clean :
 	rm -f $(EXEC)
 
