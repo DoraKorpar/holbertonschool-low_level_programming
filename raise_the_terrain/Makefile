@@ -1,11 +1,15 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
-OBJ = main_practice.c init_instance.c poll_events.c draw_grid_alt.c draw_lines2.c add_alt.c
+SRC = main_practice.c init_instance.c poll_events.c draw_grid_alt.c draw_lines2.c add_alt.c
+OBJ = $(SRC:.c=.o)
 EXEC = sdl_practice
-LIB = -lSDL2
+SDL = `sdl2-config --cflags --libs`
 
-all : $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIB) -o $(EXEC)
+all : $(EXEC)
 
+$(EXEC) : $(OBJ)
+	$(CC) $(CFLAGS) $(SRC) -o $(EXEC) $(SDL)
 clean :
-	rm $(EXEC)
+	rm -f $(EXEC)
+
+re: $(OBJ)
