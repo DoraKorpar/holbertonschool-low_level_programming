@@ -7,7 +7,7 @@ SDL = `sdl2-config --cflags --libs`
 
 all : $(EXEC)
 
-$(EXEC) : $(OBJ)
+$(EXEC) : $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(EXEC) $(SDL)
 clean :
 	rm -f $(EXEC)
