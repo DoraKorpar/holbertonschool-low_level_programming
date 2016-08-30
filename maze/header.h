@@ -16,7 +16,7 @@ typedef struct SDL_Instance
 #define WIN_WIDTH 1260
 #define WIN_HEIGHT 720
 
-int init_instance (SDL_Instance *);
+int init_instance(SDL_Instance *);
 int poll_events(void);
 
 #endif

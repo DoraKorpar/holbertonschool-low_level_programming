@@ -1,15 +1,17 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra -pedantic
-SRC = main_practice.c init_instance.c poll_events.c draw_grid_alt.c draw_lines2.c add_alt.c
+SRC = main.c poll_events.c init_instance.c
 OBJ = $(SRC:.c=.o)
-EXEC = sdl_practice
+EXEC = dorenstein
 SDL = `sdl2-config --cflags --libs`
 
 all : $(EXEC)
 
 $(EXEC) : $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(EXEC) $(SDL)
-	
+
+.PHONY : clean
+
 clean :
 	rm -f $(EXEC)
 
