@@ -8,7 +8,7 @@ int main(void)
 {
   SDL_Instance instance;
 
-  if (init_instance(&instance) != 0)
+  if (init_instance(&instance, "map") != 0)
     return (1);
   while (1)
   {
@@ -32,14 +32,14 @@ int parse_maze(SDL_Instance instance)
 
   row_num = 0;
   col_num = 0;
-  fp = fopen("maze", "r");
+  fp = fopen("map", "r");
   if (!fp)
     return (1);
   while (!feof(fp))
   {
     c = fgetc(fp);
-    SDL_Rect wall = {col_num * 64, row_num * 64, 64, 64};
-    SDL_Rect space = {col_num * 64, row_num * 64, 64, 64};
+    SDL_Rect wall = {col_num * 32, row_num * 32, 32, 32};
+    SDL_Rect space = {col_num * 32, row_num * 32, 32, 32};
     switch (c) {
       case 10: /* when c is end of line */
         row_num += 1;

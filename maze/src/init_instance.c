@@ -1,7 +1,10 @@
 #include "header.h"
+#include <string.h>
 
-int init_instance(SDL_Instance *instance)
+int init_instance(SDL_Instance *instance, char *win_type)
 {
+  // int cmp;
+
   /* Initialize SDL */
   if (SDL_Init(SDL_INIT_VIDEO) != 0)
   {
@@ -9,8 +12,15 @@ int init_instance(SDL_Instance *instance)
     return (1);
   }
   /*Create a new Window instance */
-  instance->window = SDL_CreateWindow("Dorenstein \\o/", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, 0);
-  if (instance->window == NULL)
+  if (strcmp(win_type, "maze") == 0)
+  {
+    instance->window = SDL_CreateWindow("Dorenstein \\o/", SDL_WINDOWPOS_CENTERED,SDL_WINDOWPOS_CENTERED, WIN_WIDTH, WIN_HEIGHT, 0);
+  }
+  else if (strcmp(win_type, "map") == 0)
+  {
+    instance->window = SDL_CreateWindow("Dorenstein Map", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, MAP_WIDTH, MAP_HEIGHT, 0);
+  }
+  else
   {
     fprintf(stderr, "SDL_CreateWindow Error: %s\n", SDL_GetError());
     SDL_Quit();
