@@ -1,20 +1,33 @@
-CC = gcc
-CFLAGS = -Wall -Werror -Wextra -pedantic
+CC 		= 	gcc
+CFLAGS 	= 	-Wall -Werror -Wextra -pedantic `sdl2-config --cflags`
 
-_SRC = main.c poll_events.c init_instance.c render_bg.c
-SRC = $(patsubst %,$(SDIR)/%,$(_SRC))
+_SRC 	= 	main.c \
+			init_instance.c \
+			render_bg.c \
+			poll_events.c \
+			init_maze.c \
+			print_mem.c \
+			horz_intersect.c \
+			vert_intersect.c \
+			wall_check.c \
+			dist_2wall.c \
+			comp_dist.c \
+			draw_wall.c \
+			kill_maze.c
 
-_OBJ = $(_SRC:.c=.o)
-OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
+SRC 	= 	$(patsubst %,$(SDIR)/%,$(_SRC))
 
-_DEPS = header.h
-DEPS = $(patsubst %,$(IDIR)/%,$(_DEPS))
+_OBJ 	= 	$(_SRC:.c=.o)
+OBJ 	= 	$(patsubst %,$(ODIR)/%,$(_OBJ))
 
-IDIR = ./include
-SDIR = ./src
-ODIR = ./obj
-EXEC = dorenstein
-SDL = `sdl2-config --cflags --libs`
+_DEPS 	= 	maze.h
+DEPS 	= 	$(patsubst %,$(IDIR)/%,$(_DEPS))
+
+IDIR 	= 	./include
+SDIR 	= 	./src
+ODIR 	= 	./obj
+EXEC 	= 	dorenstein
+LINKS 	= 	-lm `sdl2-config --libs`
 
 $(ODIR)/%.o : $(SDIR)/%.c
 	$(CC) $(CFLAGS) -c -o $@ $< -I$(IDIR)
@@ -22,7 +35,7 @@ $(ODIR)/%.o : $(SDIR)/%.c
 all : $(EXEC)
 
 $(EXEC) : $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ $(SDL)
+	$(CC) -o $@ $^ $(LINKS)
 
 .PHONY : clean
 
