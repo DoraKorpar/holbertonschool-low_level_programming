@@ -40,12 +40,12 @@ void render_bg(t_instance *);
 int poll_events(void);
 int init_maze(t_map *, t_pov *);
 void print_mem(t_map *, t_pov *);
-int horz_intersect(t_map *, t_pov *);
-int vert_intersect(t_map *, t_pov *);
+int horz_intersect(t_map *, t_pov *, float);
+int vert_intersect(t_map *, t_pov *, float);
 int wall_check(t_map *, int, int);
 int dist_2wall(int, int, float);
 int comp_dist(int, int);
-void draw_wall(int, t_pov *, t_instance *);
+void draw_wall(int, int, t_pov *, t_instance *);
 void kill_maze(t_instance *);
 
 #endif
