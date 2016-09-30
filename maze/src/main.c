@@ -5,8 +5,8 @@ int main(void)
     t_instance instance;
     t_map map;
     t_pov ppov;
-    int horz_dist, vert_dist, wall_dist, x_diff;
-    float cur_angle;
+    int col_num, v_or_h;
+    float horz_dist, vert_dist, wall_dist, cur_angle;
 
     if (init_instance(&instance) != 0)
         return (1);
@@ -19,29 +19,34 @@ int main(void)
         if (poll_events() == 1)
             break;
         // ppov.player_angle += 0.5;
-        if (ppov.player_angle >= 360)
+        if (ppov.player_angle > 360)
             ppov.player_angle -= 360;
         cur_angle = ppov.player_angle + (FOV / 2);
-        x_diff = 0;
-        while (cur_angle >= (ppov.player_angle - (FOV / 2)))
+        col_num = 0;
+        printf("\tpov player angle: %f\n", ppov.player_angle);
+        while (col_num < WIN_WIDTH)
         {
-            if (cur_angle < 0)
+            if (cur_angle <= 0)
                 cur_angle += 360;
-            if (cur_angle >= 360)
+            if (cur_angle > 360)
                 cur_angle -= 360;
+            // printf("distance to proj plane: %f\n", ppov.dpp);
             printf("current angle: %f\n", cur_angle);
-            printf("x position on screen: %d\n", x_diff);
+            // printf("x position on screen: %d\n", col_num);
             horz_dist = horz_intersect(&map, &ppov, cur_angle);
             vert_dist = vert_intersect(&map, &ppov, cur_angle);
-            printf("horizontal distance to wall: %d\n", horz_dist);
-            printf("vertical distance to wall: %d\n", vert_dist);
-            wall_dist = comp_dist(horz_dist, vert_dist);
-            printf("shorter distance to wall: %d\n", wall_dist);
-            draw_wall(wall_dist, x_diff, &ppov, &instance);
+            printf("horizontal distance to wall: %f\n", horz_dist);
+            printf("vertical distance to wall: %f\n", vert_dist);
+            v_or_h = 0;
+            wall_dist = comp_dist(horz_dist, vert_dist, &v_or_h);
+            printf("\t\tshorter distance to wall: %f\n", wall_dist);
+            printf("\t\tvertical is 0, horizontal is 1: %d\n", v_or_h);
+            draw_wall(wall_dist, col_num, v_or_h,cur_angle, &ppov, &instance);
             cur_angle -= ppov.asr;
-            x_diff += 1;
+            col_num += 1;
+            if (col_num > WIN_WIDTH)
+                col_num -= WIN_WIDTH;
         }
-        // ppov.player_angle += 0.01;
         SDL_RenderPresent(instance.renderer);
     }
     kill_maze(&instance);

@@ -22,7 +22,7 @@ typedef struct s_pov
     float player_x; /* grid units */
     float player_y; /* grid units */
     float player_angle; /* degrees */
-    int dpp; /* distance of player to projection plane in pixels */
+    float dpp; /* distance of player to projection plane in pixels */
     float asr; /* angle b/w subsequent rays of fov in degrees */    
 } t_pov;
 
@@ -40,12 +40,12 @@ void render_bg(t_instance *);
 int poll_events(void);
 int init_maze(t_map *, t_pov *);
 void print_mem(t_map *, t_pov *);
-int horz_intersect(t_map *, t_pov *, float);
-int vert_intersect(t_map *, t_pov *, float);
-int wall_check(t_map *, int, int);
-int dist_2wall(int, int, float);
-int comp_dist(int, int);
-void draw_wall(int, int, t_pov *, t_instance *);
+float horz_intersect(t_map *, t_pov *, float);
+float vert_intersect(t_map *, t_pov *, float);
+int wall_check(t_map *, float, float);
+float dist_2wall(float, float, float);
+float comp_dist(float, float, int *);
+void draw_wall(float, int, int, float, t_pov *, t_instance *);
 void kill_maze(t_instance *);
 
 #endif
