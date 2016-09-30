@@ -26,8 +26,11 @@ int vert_intersect(t_map *map, t_pov *ppov, float cur_angle)
     if (cur_angle <= 180) /* ray is facing up */
         delta_y = -delta_y;
 
-    if (intersect_y > WIN_WIDTH || intersect_x > WIN_HEIGHT) /* intersection point exceeds window */
+    if (intersect_y > WIN_WIDTH || intersect_y < 0) /* intersection point exceeds window */
         return (-1);
+    if (intersect_x > WIN_HEIGHT || intersect_x < 0)
+        return (-1);
+    
 
     while(wall_check(map, intersect_x, intersect_y) == 0)
     {
