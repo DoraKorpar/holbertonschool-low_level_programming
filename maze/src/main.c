@@ -18,7 +18,7 @@ int main(void)
         render_bg(&instance);
         if (poll_events() == 1)
             break;
-        // ppov.player_angle += 0.5;
+        ppov.player_angle += 0.5;
         if (ppov.player_angle > 360)
             ppov.player_angle -= 360;
         cur_angle = ppov.player_angle + (FOV / 2);

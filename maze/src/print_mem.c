@@ -25,6 +25,6 @@ void print_mem(t_map *map, t_pov *ppov)
     printf("ppov->player_x: %f\n", ppov->player_x);
     printf("ppov->player_y: %f\n", ppov->player_y);
     printf("ppov->player_angle: %f\n", ppov->player_angle);
-    printf("ppov->dpp: %d\n", ppov->dpp);
+    printf("ppov->dpp: %f\n", ppov->dpp);
     printf("ppov->asr: %f\n", ppov->asr); 
 }

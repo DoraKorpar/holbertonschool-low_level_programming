@@ -18,6 +18,5 @@ List *array_to_dl_list(char **array)
     }
     i++;
   }
-  
   return (list);
 }
