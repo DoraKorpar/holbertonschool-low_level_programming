@@ -6,10 +6,10 @@ void print_mem(t_map *map, t_pov *ppov)
     row = 0;
     column = 0;
 
-    printf("map->height = %d\n", map->height);
-    printf("map->width = %d\n", map->width);
+    // printf("map->height = %d\n", map->height);
+    // printf("map->width = %d\n", map->width);
 
-    printf("map->map:\n");
+    // printf("map->map:\n");
     while (row < map->height)
     {
         while (column < map->width)

@@ -1,23 +1,31 @@
 #include "maze.h"
 
-int poll_events(void)
+int poll_events(t_pov *ppov)
 {
     SDL_Event event;
-    SDL_KeyboardEvent key;
 
     while (SDL_PollEvent(&event))
     {
-        switch (event.type)
-        {
-            case SDL_QUIT:
-                return (1);
-            case SDL_KEYDOWN:
-                key = event.key;
-                /* if ESCAPE key is pressed */
-                if (key.keysym.scancode == 0x29)
-                    return (1);
-                break;
-        }
+		if (event.type == SDL_QUIT)
+			return (1);
+		else if (event.type == SDL_KEYDOWN)
+		{
+			switch (event.key.keysym.sym)
+			{
+			    case SDLK_LEFT:
+					ppov->player_angle += 1;
+					break;
+			    case SDLK_RIGHT:
+					ppov->player_angle -= 1;
+					break;
+			    case SDLK_w:
+					return (4);
+			    case SDLK_s:
+					return (5);
+			    case SDLK_ESCAPE:
+					return (1);
+			}
+		}
     }
     return (0);
 }

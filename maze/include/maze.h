@@ -37,7 +37,7 @@ typedef struct s_pov
 
 int init_instance(t_instance *);
 void render_bg(t_instance *);
-int poll_events(void);
+int poll_events(t_pov *);
 int init_maze(t_map *, t_pov *);
 void print_mem(t_map *, t_pov *);
 float horz_intersect(t_map *, t_pov *, float);

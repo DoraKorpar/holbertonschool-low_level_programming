@@ -5,7 +5,7 @@ float horz_intersect(t_map *map, t_pov *ppov, float cur_angle)
     // int wall_return;
     float p_x, p_y, intersect_x, intersect_y, delta_x, delta_y, horz_dist;
 
-    printf("HORIZONTAL INTERSECTIONS\n");
+    // printf("HORIZONTAL INTERSECTIONS\n");
 
     p_x = ppov->player_x * CUBE_SIZE;
     p_y = ppov->player_y * CUBE_SIZE;
