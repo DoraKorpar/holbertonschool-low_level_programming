@@ -19,9 +19,17 @@ int poll_events(t_pov *ppov)
 					ppov->player_angle -= 1;
 					break;
 			    case SDLK_w:
-					return (4);
+					ppov->player_y -= 0.1;
+					break;
 			    case SDLK_s:
-					return (5);
+					ppov->player_y += 0.1;
+					break;
+			    case SDLK_a:
+					ppov->player_x -= 0.1;
+					break;
+			    case SDLK_d:
+					ppov->player_x += 0.1;
+					break;
 			    case SDLK_ESCAPE:
 					return (1);
 			}
