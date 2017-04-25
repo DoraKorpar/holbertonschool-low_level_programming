@@ -8,7 +8,7 @@ void render_bg(t_instance *instance)
 	/* blue sky */
 	SDL_RenderClear(instance->renderer);
 	floor.x = 0;
-	floor.y = WIN_HEIGHT;
+	floor.y = WIN_HEIGHT / 2;
 	floor.w = WIN_WIDTH;
 	floor.h = WIN_HEIGHT / 2;
 
