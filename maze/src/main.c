@@ -18,6 +18,7 @@ int main(void)
 		render_bg(&instance);
 		if (poll_events(&ppov) == 1)
 			break;
+		/* toggle_map(&instance); */
 		if (ppov.player_angle > 360)
 			ppov.player_angle -= 360;
 		cur_angle = ppov.player_angle + (FOV / 2);

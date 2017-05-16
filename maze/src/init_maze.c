@@ -4,15 +4,17 @@
 int init_maze(t_map *map, t_pov *ppov)
 {
 	int temp_map[] = {
-		1, 1, 1, 1,
-		1, 0, 0, 1,
-		1, 0, 0, 1,
-		1, 1, 1, 1
+		1, 1, 1, 1, 1, 1,
+		1, 0, 0, 1, 0, 1,
+		1, 0, 0, 1, 0, 1,
+		1, 0, 1, 1, 0, 1,
+		1, 0, 0, 0, 0, 1,
+		1, 1, 1, 1, 1, 1
 	};
 	int mem_size;
 
-	map->height = 4;
-	map->width = 4;
+	map->height = 6;
+	map->width = 6;
 	mem_size = map->height * map->width * sizeof(int);
 	map->map = malloc(mem_size);
 	if (map->map == NULL)
