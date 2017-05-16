@@ -19,16 +19,44 @@ int poll_events(t_pov *ppov)
 					ppov->player_angle -= 1;
 					break;
 			    case SDLK_w:
-					ppov->player_y -= 0.1;
+					if (ppov->player_angle > 45.0 && ppov->player_angle <= 135.0) 
+						ppov->player_y -= 0.1;
+					else if (ppov->player_angle > 135.0 && ppov->player_angle <= 225.0)
+						ppov->player_x -= 0.1;
+					else if (ppov->player_angle > 225.0 && ppov->player_angle <= 315.0)
+						ppov->player_y += 0.1;
+					else if (ppov->player_angle > 315.0 || ppov->player_angle <= 45.0)
+						ppov->player_x += 0.1;
 					break;
 			    case SDLK_s:
-					ppov->player_y += 0.1;
+					if (ppov->player_angle > 45.0 && ppov->player_angle <= 135.0) 
+						ppov->player_y += 0.1;
+					else if (ppov->player_angle > 135.0 && ppov->player_angle <= 225.0)
+						ppov->player_x += 0.1;
+					else if (ppov->player_angle > 225.0 && ppov->player_angle <= 315.0)
+						ppov->player_y -= 0.1;
+					else if (ppov->player_angle > 315.0 || ppov->player_angle <= 45.0)
+						ppov->player_x -= 0.1;
 					break;
 			    case SDLK_a:
-					ppov->player_x -= 0.1;
+					if (ppov->player_angle > 45.0 && ppov->player_angle <= 135.0) 
+						ppov->player_x -= 0.1;
+					else if (ppov->player_angle > 135.0 && ppov->player_angle <= 225.0)
+						ppov->player_y += 0.1;
+					else if (ppov->player_angle > 225.0 && ppov->player_angle <= 315.0)
+						ppov->player_x += 0.1;
+					else if (ppov->player_angle > 315.0 || ppov->player_angle <= 45.0)
+						ppov->player_y -= 0.1;
 					break;
 			    case SDLK_d:
-					ppov->player_x += 0.1;
+					if (ppov->player_angle > 45.0 && ppov->player_angle <= 135.0) 
+						ppov->player_x += 0.1;
+					else if (ppov->player_angle > 135.0 && ppov->player_angle <= 225.0)
+						ppov->player_y -= 0.1;
+					else if (ppov->player_angle > 225.0 && ppov->player_angle <= 315.0)
+						ppov->player_x -= 0.1;
+					else if (ppov->player_angle > 315.0 || ppov->player_angle <= 45.0)
+						ppov->player_y += 0.1;
 					break;
 			    case SDLK_ESCAPE:
 					return (1);
